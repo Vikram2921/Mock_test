@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Generate_QR">
+    <RelativeLayout
+        android:id="@+id/intime"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_marginTop="25dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:id="@+id/sca"
+            android:text="Scan this QR code to enter in exam."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:id="@+id/QRCODE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:backgroundTint="@color/colorAccent"
+                android:textColor="#fff"
+                android:text="Check Live status of Exam"
+                android:id="@+id/live_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/other_time"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <cn.iwgang.countdownview.CountdownView
+            android:padding="15dp"
+            android:background="@color/colorPrimary"
+            android:layout_centerInParent="true"
+            android:id="@+id/counter_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            app:isHideTimeBackground="false"
+            app:isShowHour="true"
+            app:isShowMinute="true"
+            app:isShowSecond="true"
+            app:timeTextColor="#fff"
+            app:timeBgRadius="10dp"
+            app:isShowTimeBgDivisionLine="true"
+            app:timeBgDivisionLineColor="#fff"
+            app:timeBgDivisionLineSize="0.5dp"
+            app:timeTextSize="50dp"
+            app:isTimeTextBold="true"
+            app:timeBgColor="#3A3A3A"
+            app:suffixGravity="center"
+            app:suffixTextColor="#FFFCFC"
+            app:suffixTextSize="18dp"
+            app:suffixHour=":"
+            app:suffixMinute=":"
+            app:isSuffixTextBold="true"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_marginTop="25dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:textColor="#fff"
+            android:id="@+id/sca1"
+            android:text="QR Code will generate in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</RelativeLayout>

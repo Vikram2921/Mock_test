@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/eic"
+        android:layout_width="80dp"
+        android:tint="@color/colorPrimary"
+        android:layout_centerVertical="true"
+        android:src="@drawable/examicon"
+        android:layout_height="80dp" />
+    <LinearLayout
+        android:layout_toRightOf="@id/eic"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <TextView
+            android:singleLine="true"
+            android:id="@+id/test_name"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="23dp"
+            android:text="Mock Test 1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:singleLine="true"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:id="@+id/max"
+            android:textSize="15dp"
+            android:text="Max Marks : 20  | Starting time : 02 :30 PM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:id="@+id/head"
+                android:text="Exam starts in "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <cn.iwgang.countdownview.CountdownView
+                app:timeTextSize="15dp"
+                app:isTimeTextBold="true"
+                android:id="@+id/counter"
+                android:layout_marginTop="5dp"
+                app:timeTextColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

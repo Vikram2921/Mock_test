@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp">
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_toLeftOf="@id/option"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp"
+            android:maxLines="1"
+            android:id="@+id/question"
+            android:text="What is the capital of india ?kjhkajhfkhafkhsdkfhksfhkjfhkjdfhsfkjhkjsdhfkshfa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#000"
+            android:layout_marginTop="5dp"
+            android:textSize="15dp"
+            android:maxLines="1"
+            android:id="@+id/markandtype"
+            android:text="2 marks       |       D.R.Q"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="2"
+        android:id="@+id/option"
+        android:layout_alignParentRight="true"
+        android:layout_width="100dp"
+        android:layout_height="match_parent">
+        <ImageView
+            android:padding="12dp"
+            android:id="@+id/edit_question"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/ic_edit_black_24dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:padding="12dp"
+            android:id="@+id/delete_question"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/ic_delete_forever_black_24dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>

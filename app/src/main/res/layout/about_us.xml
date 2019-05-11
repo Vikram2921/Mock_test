@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/icon"
+                android:layout_centerInParent="true"
+                android:src="@drawable/logo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_alignParentBottom="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25dp"
+                    android:id="@+id/app_title"
+                    android:textAlignment="center"
+                    android:text="Live Mock Test \nApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:textStyle="normal"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="13dp"
+                    android:id="@+id/app_version"
+                    android:textAlignment="center"
+                    android:text="V1.0.0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

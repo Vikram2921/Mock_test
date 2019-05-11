@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".show_Result">
+    <ScrollView
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.CardView
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                app:cardCornerRadius="5dp"
+                android:background="#fff"
+                app:cardElevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:id="@+id/tp1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:src="@drawable/examicon"
+                            android:id="@+id/eico"
+                            android:tint="@color/colorPrimary"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp" />
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_marginTop="5dp"
+                            android:layout_toRightOf="@id/eico"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="Exam name"
+                                android:textSize="30dp"
+                                android:id="@+id/examname"
+                                android:textColor="@color/colorPrimary"
+                                android:textStyle="bold"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="Max. Marks : --"
+                                android:textSize="16dp"
+                                android:id="@+id/mm"
+                                android:textColor="@color/colorPrimary"
+                                android:textStyle="bold"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_below="@id/tp1"
+                        android:layout_marginBottom="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15dp"
+                            android:id="@+id/sf"
+                            android:text="Start from :: --:--:-- --"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15dp"
+                            android:id="@+id/ea"
+                            android:layout_marginTop="5dp"
+                            android:text="End at :: --:--:-- --"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                app:cardCornerRadius="5dp"
+                android:background="#fff"
+                app:cardElevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="#fff"
+                        android:background="@color/colorPrimary"
+                        android:padding="5dp"
+                        android:textSize="18dp"
+                        android:text=" Your Performance and Result "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:padding="15dp"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:textSize="15dp"
+                                android:layout_centerHorizontal="true"
+                                android:textAlignment="center"
+                                android:textColor="#000"
+                                android:id="@+id/ctv"
+                                android:layout_below="@id/correct_progress"
+                                android:textStyle="bold"
+                                android:text="Correct Answers\n-- / --"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content" />
+                            <com.timqi.sectorprogressview.SectorProgressView
+                                android:layout_width="60dp"
+                                app:bgColor="#e5e5e5"
+                                android:layout_centerHorizontal="true"
+                                app:fgColor="@color/question_answered"
+                                android:layout_alignParentTop="true"
+                                app:percent="0"
+                                android:id="@+id/correct_progress"
+                                app:startAngle="0"
+                                android:layout_centerVertical="true"
+                                android:layout_height="60dp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:padding="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:textSize="15dp"
+                                android:textAlignment="center"
+                                android:textColor="#000"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/wrong_progress"
+                                android:textStyle="bold"
+                                android:text="Wrong Answers\n-- / --"
+                                android:id="@+id/wtv"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content" />
+                            <com.timqi.sectorprogressview.SectorProgressView
+                                android:layout_width="60dp"
+                                app:bgColor="#e5e5e5"
+                                android:layout_centerHorizontal="true"
+                                app:fgColor="#FF2900"
+                                android:layout_alignParentTop="true"
+                                app:percent="0"
+                                android:id="@+id/wrong_progress"
+                                app:startAngle="0"
+                                android:layout_centerVertical="true"
+                                android:layout_height="60dp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:padding="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:textSize="15dp"
+                                android:textAlignment="center"
+                                android:textColor="#000"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/skipped_progress"
+                                android:textStyle="bold"
+                                android:id="@+id/stv"
+                                android:text="Skipped Questons\n-- / --"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content" />
+                            <com.timqi.sectorprogressview.SectorProgressView
+                                android:layout_width="60dp"
+                                app:bgColor="#e5e5e5"
+                                app:fgColor="#673AB7"
+                                android:layout_centerHorizontal="true"
+                                android:layout_alignParentTop="true"
+                                app:percent="0"
+                                android:id="@+id/skipped_progress"
+                                app:startAngle="0"
+                                android:layout_centerVertical="true"
+                                android:layout_height="60dp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <View
+                        android:background="#969696"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.7dp"/>
+                    <LinearLayout
+                        android:layout_margin="10dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:textStyle="bold"
+                                android:padding="10dp"
+                                android:layout_weight="1"
+                                android:textSize="18dp"
+                                android:textColor="@color/colorPrimary"
+                                android:text="Percentage"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:textStyle="bold"
+                                android:id="@+id/percentage"
+                                android:padding="10dp"
+                                android:layout_weight="1"
+                                android:textSize="18dp"
+                                android:textColor="#000"
+                                android:text="-- %"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:textStyle="bold"
+                                android:padding="10dp"
+                                android:layout_weight="1"
+                                android:textSize="18dp"
+                                android:textColor="@color/colorPrimary"
+                                android:text="Result"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:textStyle="bold"
+                                android:padding="10dp"
+                                android:layout_weight="1"
+                                android:id="@+id/overall"
+                                android:textSize="18dp"
+                                android:textColor="#000"
+                                android:text="----"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                app:cardCornerRadius="5dp"
+                android:background="#fff"
+                app:cardElevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="#fff"
+                        android:background="@color/colorPrimary"
+                        android:padding="5dp"
+                        android:textSize="18dp"
+                        android:text=" Your Responses"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:showDividers="middle"
+                        android:divider="@drawable/orca_composer_divider_vertical"
+                        android:background="@color/colorAccent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_weight="1"
+                            android:textColor="#fff"
+                            android:padding="5dp"
+                            android:textSize="18dp"
+                            android:textAlignment="center"
+                            android:text=" Q no."
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_weight="1"
+                            android:textColor="#fff"
+                            android:padding="5dp"
+                            android:textSize="18dp"
+                            android:text=" Correct"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_weight="1"
+                            android:textColor="#fff"
+                            android:padding="5dp"
+                            android:textSize="18dp"
+                            android:textAlignment="center"
+                            android:text=" Response"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_weight="1"
+                            android:textColor="#fff"
+                            android:padding="5dp"
+                            android:textSize="18dp"
+                            android:textAlignment="center"
+                            android:text=" View"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/response_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

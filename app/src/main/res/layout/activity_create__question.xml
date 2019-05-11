@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Create_Question">
+    <LinearLayout
+        android:id="@+id/top"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <CheckBox
+            android:layout_weight="1"
+            android:text="M.C.Q"
+            android:textColor="#fff"
+            android:checked="true"
+            android:id="@+id/mcq"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <CheckBox
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:text="D.R.Q"
+            android:id="@+id/drq"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            app:boxBackgroundMode="outline"
+            android:layout_height="match_parent">
+            <EditText
+                android:inputType="number"
+                android:text="1"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:textColorHint="#fff"
+                android:id="@+id/marks"
+                android:hint="marks"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+    <ScrollView
+        android:layout_below="@id/top"
+        android:overScrollMode="never"
+        android:layout_above="@id/bottom"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="35dp"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:boxBackgroundMode="outline"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/question_box"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:text=""
+                    android:textSize="18dp"
+                    android:hint="Enter Question"
+                    android:inputType="textCapSentences"
+                    android:padding="14dp"
+                    android:id="@+id/question"
+                    android:drawablePadding="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.design.widget.TextInputLayout>
+            <RelativeLayout
+                android:id="@+id/DRQView"
+                android:layout_margin="10dp"
+                android:layout_below="@id/MCQView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:boxBackgroundMode="outline"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:text=""
+                        android:textSize="18dp"
+                        android:hint="Answer"
+                        android:inputType="numberDecimal"
+                        android:padding="14dp"
+                        android:id="@+id/answer"
+                        android:drawablePadding="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/MCQView"
+                android:layout_margin="10dp"
+                android:layout_below="@id/question_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:weightSum="4"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:boxBackgroundMode="outline"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:text=""
+                            android:textSize="18dp"
+                            android:hint="Option 1"
+                            android:padding="14dp"
+                            android:inputType="textCapSentences"
+                            android:id="@+id/answer1"
+                            android:drawablePadding="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:boxBackgroundMode="outline"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:text=""
+                            android:textSize="18dp"
+                            android:inputType="textCapSentences"
+                            android:hint="Option 2"
+                            android:padding="14dp"
+                            android:id="@+id/answer2"
+                            android:drawablePadding="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:boxBackgroundMode="outline"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:text=""
+                            android:textSize="18dp"
+                            android:hint="Option 3"
+                            android:padding="14dp"
+                            android:inputType="textCapSentences"
+                            android:id="@+id/answer3"
+                            android:drawablePadding="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:boxBackgroundMode="outline"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:text=""
+                            android:textSize="18dp"
+                            android:hint="Option 4"
+                            android:inputType="textCapSentences"
+                            android:padding="14dp"
+                            android:id="@+id/answer4"
+                            android:drawablePadding="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:id="@+id/bottom"
+        android:divider="@drawable/orca_composer_divider_vertical"
+        android:showDividers="middle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:id="@+id/sac"
+            android:text="Save and close"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:id="@+id/san"
+            android:text="Save and next"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>

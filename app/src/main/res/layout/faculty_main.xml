@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.CardView
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:elevation="5dp"
+                app:cardCornerRadius="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/today_list"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:padding="2dp"
+                        android:textColor="#fff"
+                        android:background="@color/colorAccent"
+                        android:text="  Today exams list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:id="@+id/tls"
+                        android:divider="@drawable/orca_composer_divider_horizontal"
+                        android:showDividers="middle"
+                        android:orientation="vertical"
+                        android:layout_below="@id/today_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/exam_vis"
+                        android:layout_below="@id/tls"
+                        android:padding="20dp"
+                        android:textAlignment="center"
+                        android:textSize="18dp"
+                        android:text="fetching today exam list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_below="@id/tls"
+                        android:background="@color/colorAccent"
+                        android:textAlignment="center"
+                        android:textSize="18dp"
+                        android:textColor="#fff"
+                        android:id="@+id/view_all"
+                        android:visibility="gone"
+                        android:padding="5dp"
+                        android:textStyle="bold"
+                        android:text="View all 10 >>"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5dp"
+        android:tint="#fff"
+        android:src="@drawable/ic_assignment_black_24dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/add_paper"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

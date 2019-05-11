@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Start_mock_test">
+    <RelativeLayout
+        android:id="@+id/heading"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_toLeftOf="@id/counter_view"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/test_name"
+                android:text="Mock Test 1"
+                android:textSize="19dp"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/max_marks"
+                android:text="Max. marks : 20"
+                android:textSize="15dp"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <cn.iwgang.countdownview.CountdownView
+            android:padding="15dp"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentRight="true"
+            android:id="@+id/counter_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:isHideTimeBackground="false"
+            app:isShowHour="true"
+            app:isShowMinute="true"
+            app:isShowSecond="true"
+            app:timeTextColor="#fff"
+            app:timeBgRadius="10dp"
+            app:isShowTimeBgDivisionLine="true"
+            app:timeBgDivisionLineColor="#fff"
+            app:timeBgDivisionLineSize="0.5dp"
+            app:timeTextSize="25sp"
+            app:isTimeTextBold="true"
+            app:timeBgColor="#3A3A3A"
+            app:suffixGravity="center"
+            app:suffixTextColor="#FFFCFC"
+            app:suffixTextSize="18dp"
+            app:suffixHour=":"
+            app:suffixMinute=":"
+            app:isSuffixTextBold="true"
+            tools:ignore="MissingConstraints" />
+    </RelativeLayout>
+    <HorizontalScrollView
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:id="@+id/questions"
+        android:layout_below="@id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/question_container"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </LinearLayout>
+    </HorizontalScrollView>
+    <android.support.v4.view.ViewPager
+        android:layout_below="@id/questions"
+        android:id="@+id/viewpager"
+        android:layout_above="@id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+    <Button
+        android:id="@+id/submit"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:text="Submit and Quit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

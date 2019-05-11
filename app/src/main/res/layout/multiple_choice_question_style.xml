@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:layout_margin="10dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/gd"
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimary"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_alignParentTop="true"
+                    android:text="Question 1 :"
+                    android:textAllCaps="false"
+                    android:textSize="20dp"
+                    android:padding="10dp"
+                    android:id="@+id/question_no"
+                    android:textColor="#fff"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_alignParentTop="true"
+                    android:text="Marks : 2"
+                    android:textAllCaps="false"
+                    android:layout_alignParentRight="true"
+                    android:textSize="20dp"
+                    android:padding="10dp"
+                    android:id="@+id/question_marks"
+                    android:textColor="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <ScrollView
+                android:layout_below="@id/gd"
+                android:layout_above="@id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:padding="15dp"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:id="@+id/question"
+                        android:text="QUESTION 1: This is a question sample this is for testing to sure that question is visible to candidate clearly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:padding="15dp"
+                        android:layout_below="@id/question"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:padding="10dp"
+                            android:id="@+id/op1"
+                            android:textSize="18dp"
+                            android:text="This is option 1"
+                            android:background="@drawable/box_back"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <CheckBox
+                            android:layout_marginTop="8dp"
+                            android:id="@+id/op2"
+                            android:textSize="18dp"
+                            android:padding="10dp"
+                            android:text="This is option 1"
+                            android:background="@drawable/box_back"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <CheckBox
+                            android:id="@+id/op3"
+                            android:layout_marginTop="8dp"
+                            android:padding="10dp"
+                            android:textSize="18dp"
+                            android:text="This is option 1"
+                            android:background="@drawable/box_back"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <CheckBox
+                            android:id="@+id/op4"
+                            android:textSize="18dp"
+                            android:padding="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="This is option 1"
+                            android:background="@drawable/box_back"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </ScrollView>
+            <Button
+                android:layout_alignParentBottom="true"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textSize="15dp"
+                android:id="@+id/submit"
+                android:textColor="#fff"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</FrameLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:divider="@drawable/orca_composer_divider_horizontal"
+            android:showDividers="middle"
+            android:orientation="vertical"
+            android:id="@+id/lister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></LinearLayout>
+    </ScrollView>
+</RelativeLayout>

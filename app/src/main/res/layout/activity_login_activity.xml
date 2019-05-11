@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    tools:context=".login_activity">
+    <android.support.v7.widget.CardView
+        android:id="@+id/top"
+        app:cardElevation="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <in.myinnos.imagesliderwithswipeslibrary.SliderLayout
+                    android:id="@+id/slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    custom:auto_cycle="true"
+                    custom:indicator_visibility="visible"
+                    custom:pager_animation="Stack"
+                    custom:pager_animation_span="1100" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <RelativeLayout
+        android:layout_below="@id/top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="35dp"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:boxBackgroundMode="outline"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/tiw"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:text=""
+                        android:textSize="18dp"
+                        android:hint="Enter Username"
+                        android:padding="14dp"
+                        android:id="@+id/username"
+                        android:drawablePadding="6dp"
+                        android:layout_width="match_parent"
+                        android:drawableLeft="@drawable/person"
+                        android:layout_height="wrap_content" />
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/tip"
+                    android:layout_below="@id/tiw"
+                    app:boxBackgroundMode="outline"
+                    android:layout_margin="10dp"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:passwordToggleEnabled="true"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:text=""
+                        android:inputType="textPassword"
+                        android:textSize="18dp"
+                        android:hint="Enter Password"
+                        android:padding="14dp"
+                        android:id="@+id/password"
+                        android:drawablePadding="6dp"
+                        android:layout_width="match_parent"
+                        android:drawableLeft="@drawable/ic_lock_black_24dp"
+                        android:layout_height="wrap_content" />
+
+                </android.support.design.widget.TextInputLayout>
+                <CheckBox
+                    android:layout_below="@id/tip"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"
+                    android:id="@+id/rember"
+                    android:text="Remember me on next login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:padding="10dp"
+                    android:textSize="18dp"
+                    android:textColor="#fff"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textAllCaps="false"
+                    android:text="Login Securely"
+                    android:layout_margin="10dp"
+                    android:id="@+id/login"
+                    android:layout_below="@id/rember"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <RelativeLayout
+                    android:id="@+id/or"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_below="@id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:layout_centerVertical="true"
+                        android:background="#ADADAD"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"></View>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:textColor="#000000"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
+                        android:textStyle="bold"
+                        android:text="Or"
+                        android:background="#FAFAFA"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <Button
+                    android:padding="10dp"
+                    android:textSize="18dp"
+                    android:textColor="#fff"
+                    android:id="@+id/create"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:textAllCaps="false"
+                    android:text="Create new account"
+                    android:layout_margin="10dp"
+                    android:layout_below="@id/or"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</RelativeLayout>

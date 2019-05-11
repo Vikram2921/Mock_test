@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="100dp">
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/examicon"
+        android:id="@+id/eic"
+        android:tint="@color/colorPrimary"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+    <LinearLayout
+        android:layout_toRightOf="@id/eic"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="Exam name"
+            android:textSize="25dp"
+            android:id="@+id/examname"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="Max. marks : --"
+            android:textSize="15dp"
+            android:id="@+id/maxmarks"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="from :: -- : -- : -- --     to :: -- : -- : -- -- "
+            android:textSize="15dp"
+            android:id="@+id/time"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>
