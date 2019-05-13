@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Edit_profile"></activity>
+        <activity android:name=".live_status"></activity>
+        <activity android:name=".Edit_profile" />
         <activity android:name=".show_Result" />
 
         <uses-library

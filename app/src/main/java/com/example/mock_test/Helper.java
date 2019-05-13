@@ -26,6 +26,14 @@ public class Helper
         key = date + "" + time;
         return key;
     }
+    public String getTodaydateinformat()
+    {
+        String dd=getTodaydate("dd");
+        String mm=getTodaydate("MM");
+        String yyyy=getTodaydate("yyyy");
+        String date=convertoTwo(Integer.parseInt(dd))+""+convertoTwo((Integer.parseInt(mm)-1))+""+yyyy;
+        return date;
+    }
     public String getCurrentTime(String format)
     {
         SimpleDateFormat sdf = new SimpleDateFormat(format);

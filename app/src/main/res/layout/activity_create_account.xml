@@ -18,6 +18,7 @@
             <ImageView
                 android:layout_marginTop="10dp"
                 android:src="@drawable/person"
+                android:scaleType="centerCrop"
                 android:background="@color/colorPrimary"
                 android:layout_centerHorizontal="true"
                 android:layout_width="120dp"
@@ -67,16 +68,22 @@
                     android:drawableLeft="@drawable/person"
                     android:layout_height="wrap_content" />
             </android.support.design.widget.TextInputLayout>
-
+            <TextView
+                android:id="@+id/userhint"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@id/user_name"
+                android:text="Username should not contains . , # , $ , [ , ]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 app:boxStrokeColor="@color/colorPrimary"
                 app:boxBackgroundMode="outline"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:id="@+id/email_id"
-                android:layout_below="@id/user_name"
+                android:layout_below="@id/userhint"
                 android:layout_height="wrap_content">
                 <EditText
                     android:text=""

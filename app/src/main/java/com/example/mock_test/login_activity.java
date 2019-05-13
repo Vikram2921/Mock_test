@@ -1,11 +1,17 @@
 package com.example.mock_test;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -63,6 +69,7 @@ public class login_activity extends AppCompatActivity implements BaseSliderView.
         }
         fd=FirebaseDatabase.getInstance();
         ref=fd.getReference("Users");
+        CheckforPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,1);
         sh=new Shared_handler(getApplicationContext());
         if(sh.getFrom("personal","remember").equals("true"))
         {
@@ -223,6 +230,93 @@ public class login_activity extends AppCompatActivity implements BaseSliderView.
     @Override
     public void onSliderClick(BaseSliderView slider)
     {
-        Toast.makeText(this, slider.getBundle().get("extra") + "", Toast.LENGTH_SHORT).show();
+    }
+    private void CheckforPermission(String permission,int code)
+    {
+        int per = ContextCompat.checkSelfPermission(this,permission);
+        if (per != PackageManager.PERMISSION_GRANTED)
+        {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,permission))
+            {
+                requestpermission(permission,code);
+            }
+            else
+            {
+                requestpermission(permission,code);
+            }
+        }
+    }
+    public void requestpermission(String permission,int code)
+    {
+        ActivityCompat.requestPermissions(this,
+                new String [] { permission }, code);
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String [] permissions, @NonNull int [] grantResults)
+    {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode)
+        {
+            case 1:
+            {
+                if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED)
+                {
+                    CheckforPermission(Manifest.permission.CAMERA,2);
+                }
+                else
+                {
+                    CheckforPermission(Manifest.permission.CAMERA,2);
+                }
+                return;
+            }
+            case 2:
+            {
+                if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED)
+                {
+                    CheckforPermission(Manifest.permission.VIBRATE,3);
+                }
+                else
+                {
+                    CheckforPermission(Manifest.permission.VIBRATE,3);
+                }
+                return;
+            }
+            case 3:
+            {
+                if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED)
+                {
+                    CheckforPermission(Manifest.permission.READ_PHONE_STATE,4);
+                }
+                else
+                {
+                    CheckforPermission(Manifest.permission.READ_PHONE_STATE,4);
+                }
+                return;
+            }
+            case 4:
+            {
+                if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED)
+                {
+                    CheckforPermission(Manifest.permission.READ_EXTERNAL_STORAGE,5);
+                }
+                else
+                {
+                    CheckforPermission(Manifest.permission.READ_EXTERNAL_STORAGE,5);
+                }
+                return;
+            }
+            case 5:
+            {
+                if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED)
+                {
+                }
+                else
+                {
+                }
+                return;
+            }
+            default:
+                break;
+        }
     }
 }

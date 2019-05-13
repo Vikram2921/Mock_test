@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +28,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import cn.iwgang.countdownview.CountdownView;
+
+import static com.example.mock_test.Faculty_home.fcontext;
+
 public class Faculty_main extends Fragment
 {
     FirebaseDatabase fd;
@@ -134,7 +138,7 @@ public class Faculty_main extends Fragment
     }
     private void addintodaylist(final String euid, final mock_test_basic_pojo mtbp)
     {
-        LayoutInflater inflater= (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater= (LayoutInflater)fcontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=inflater.inflate(R.layout.today_exam_list_item,null);
         TextView tv=view.findViewById(R.id.test_name);
         TextView tv1=view.findViewById(R.id.max);
@@ -192,6 +196,7 @@ public class Faculty_main extends Fragment
                 head.setText("Exam is currently running. Ends in ");
                 long millis0 = date4.getTime() - date2.getTime();
                 cdv.start(millis0);
+                able[0] =true;
                 cdv.setOnCountdownEndListener(new CountdownView.OnCountdownEndListener() {
                     @Override
                     public void onEnd(CountdownView cv)
@@ -222,7 +227,9 @@ public class Faculty_main extends Fragment
                     }
                     else
                     {
-
+                        Intent intent = new Intent(getContext(), live_status.class);
+                        intent.putExtra("euid", euid);
+                        startActivity(intent);
                     }
                 }
             }

@@ -39,6 +39,7 @@ public class Create_Question extends AppCompatActivity {
     String type="MCQ";
     String isedit="false";
     int qno=0;
+    Question_pojo editqp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,14 +55,14 @@ public class Create_Question extends AppCompatActivity {
     }
     public void loadQuestion()
     {
-        Question_pojo qp=questionlist.get(qno);
-        marks.setText(qp.getMarks()+"");
-        question.setText(qp.getQuestion()+"");
-        answer.setText(qp.getCorrect());
-        if(qp.getType().equals("MCQ"))
+        editqp=questionlist.get(qno);
+        marks.setText(editqp.getMarks()+"");
+        question.setText(editqp.getQuestion()+"");
+        answer.setText(editqp.getCorrect());
+        if(editqp.getType().equals("MCQ"))
         {
             mcq.setChecked(true);
-            String[] sp=qp.getOptions().split(breaker);
+            String[] sp=editqp.getOptions().split(breaker);
             op1.setText(sp[0]);
             op2.setText(sp[1]);
             op3.setText(sp[2]);
@@ -90,10 +91,6 @@ public class Create_Question extends AppCompatActivity {
         op4=findViewById(R.id.answer4);
         sac=findViewById(R.id.sac);
         san=findViewById(R.id.san);
-        if(isedit.equals("true"))
-        {
-            loadQuestion();
-        }
         mcq.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b)
@@ -127,6 +124,10 @@ public class Create_Question extends AppCompatActivity {
                 }
             }
         });
+        if(isedit.equals("true"))
+        {
+            loadQuestion();
+        }
         sac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -137,12 +138,14 @@ public class Create_Question extends AppCompatActivity {
                     {
                         if(Integer.parseInt(marks.getText().toString())>0)
                         {
-                            Question_pojo qp=getQuestionPojo();
                             if(isedit.equals("true"))
                             {
-                                questionlist.set(qno,qp);
+                                updateEditedQuestionPojo();
+                                questionlist.set(qno,editqp);
                             }
-                            else {
+                            else
+                            {
+                                Question_pojo qp=getQuestionPojo();
                                 questionlist.add(qp);
                                 addinList(qp);
                             }
@@ -174,12 +177,14 @@ public class Create_Question extends AppCompatActivity {
                     {
                         if(Integer.parseInt(marks.getText().toString())>0)
                         {
-                            Question_pojo qp=getQuestionPojo();
                             if(isedit.equals("true"))
                             {
-                                questionlist.set(qno,qp);
+                                updateEditedQuestionPojo();
+                                questionlist.set(qno,editqp);
                             }
-                            else {
+                            else
+                            {
+                                Question_pojo qp=getQuestionPojo();
                                 questionlist.add(qp);
                                 addinList(qp);
                             }
@@ -223,6 +228,19 @@ public class Create_Question extends AppCompatActivity {
             qp.setOptions("NONE");
         }
         return qp;
+    }
+    public void updateEditedQuestionPojo()
+    {
+        editqp.setType(type);
+        editqp.setCorrect(answer.getText().toString()+"");
+        editqp.setMarks(marks.getText().toString());
+        editqp.setQuestion(question.getText().toString());
+        if(type.equals("MCQ"))
+        {
+            editqp.setOptions(op1.getText().toString() + breaker + op2.getText().toString() + breaker + op3.getText().toString() + breaker + op4.getText().toString());
+        }else {
+            editqp.setOptions("NONE");
+        }
     }
     public void addinList(final Question_pojo qp)
     {

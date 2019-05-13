@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -31,6 +32,7 @@ public class Generate_QR extends AppCompatActivity {
     String euid,stime;
     long before=0;
     RelativeLayout it,ot;
+    Button livestatus;
     CountdownView countdownView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,16 @@ public class Generate_QR extends AppCompatActivity {
         it=findViewById(R.id.intime);
         ot=findViewById(R.id.other_time);
         qr=findViewById(R.id.QRCODE);
+        livestatus=findViewById(R.id.live_status);
+        livestatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent=new Intent(getApplicationContext(),live_status.class);
+                intent.putExtra("euid",euid);
+                startActivity(intent);
+            }
+        });
         countdownView=findViewById(R.id.counter_view);
         Date start=getDate(stime);
         Date current=getDate(h.getCurrentTime("hh:mm:ss a"));

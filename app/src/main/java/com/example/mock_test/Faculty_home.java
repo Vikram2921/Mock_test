@@ -1,5 +1,6 @@
 package com.example.mock_test;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -27,6 +28,7 @@ public class Faculty_home extends AppCompatActivity implements DuoMenuView.OnMen
     DuoMenuView duoMenuView;
     static Helper h=new Helper();
     DuoDrawerLayout drawerLayout;
+    static Context fcontext;
     Toolbar toolbar;
     ArrayList<String> menulist=new ArrayList<>();
     @Override
@@ -37,6 +39,7 @@ public class Faculty_home extends AppCompatActivity implements DuoMenuView.OnMen
         drawerLayout=findViewById(R.id.drawer);
         duoMenuView= (DuoMenuView) drawerLayout.getMenuView();
         getSupportActionBar().hide();
+        fcontext=getApplicationContext();
         toolbar.setTitle("Home");
         shh=new Shared_handler(getApplicationContext());
         handleDrawer();

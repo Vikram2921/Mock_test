@@ -206,48 +206,56 @@ public class Student_home extends AppCompatActivity implements DuoMenuView.OnMen
             dialog.setMessage("Verify exam details please wait ....");
             dialog.show();
             final String result = data.getStringExtra("com.blikoon.qrcodescanner.got_qr_scan_relult");
-            final String td=getTodaydateinformat();
-            ref.child(td).child(result).child("Exam basic").addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-                {
-                    mock_test_basic_pojo mtbp=dataSnapshot.getValue(mock_test_basic_pojo.class);
-                    final String stime=mtbp.getExam_start_time();
-                    String[] sp=stime.split("]-]");
-                    int sh=Integer.parseInt(sp[0]);
-                    final int sm=Integer.parseInt(sp[1]);
-                    String a="AM";
-                    if(sh>12)
-                    {
-                        a="PM";
-                        sh=sh-12;
+            if(result.contains("/")||result.contains(":"))
+            {
+                Toast.makeText(getApplicationContext(),"Invalid Qr code !",Toast.LENGTH_LONG).show();
+                dialog.dismiss();
+            }
+            else {
+                final String td = getTodaydateinformat();
+                ref.child(td).child(result).child("Exam basic").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            mock_test_basic_pojo mtbp = dataSnapshot.getValue(mock_test_basic_pojo.class);
+                            final String stime = mtbp.getExam_start_time();
+                            String[] sp = stime.split("]-]");
+                            int sh = Integer.parseInt(sp[0]);
+                            final int sm = Integer.parseInt(sp[1]);
+                            String a = "AM";
+                            if (sh > 12) {
+                                a = "PM";
+                                sh = sh - 12;
+                            }
+                            String etime = mtbp.getExam_end_time();
+                            String[] ep = etime.split("]-]");
+                            int eh = Integer.parseInt(ep[0]);
+                            final int em = Integer.parseInt(ep[1]);
+                            String e = "AM";
+                            if (eh > 12) {
+                                e = "PM";
+                                eh = eh - 12;
+                            }
+                            String stimedef = convertoTwo(sh) + ":" + convertoTwo(sm) + ":00 " + a;
+                            String etimedef = convertoTwo(eh) + ":" + convertoTwo(em) + ":00 " + e;
+                            Intent intent = new Intent(getApplicationContext(), nexttoenter.class);
+                            intent.putExtra("date", td);
+                            intent.putExtra("euid", result);
+                            intent.putExtra("stime", stimedef);
+                            intent.putExtra("etime", etimedef);
+                            startActivity(intent);
+                            dialog.dismiss();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Wrong QR code !", Toast.LENGTH_LONG).show();
+                        }
                     }
-                    String etime=mtbp.getExam_end_time();
-                    String[] ep=etime.split("]-]");
-                    int eh=Integer.parseInt(ep[0]);
-                    final int em=Integer.parseInt(ep[1]);
-                    String e="AM";
-                    if(eh>12)
-                    {
-                        e="PM";
-                        eh=eh-12;
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
                     }
-                    String stimedef=convertoTwo(sh)+":"+convertoTwo(sm)+":00 "+ a;
-                    String etimedef=convertoTwo(eh)+":"+convertoTwo(em)+":00 "+ e;
-                    Intent intent=new Intent(getApplicationContext(),nexttoenter.class);
-                    intent.putExtra("date",td);
-                    intent.putExtra("euid",result);
-                    intent.putExtra("stime",stimedef);
-                    intent.putExtra("etime",etimedef);
-                    startActivity(intent);
-                    dialog.dismiss();
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
+                });
+            }
         }
     }
     public String convertoTwo(int val)

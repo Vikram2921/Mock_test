@@ -134,13 +134,19 @@ public class nexttoenter extends AppCompatActivity
         Date now=h.getDate(h.getTodaydate("hh:mm:ss a"));
         if(now.after(start))
         {
-            Intent intent1=new Intent(getApplicationContext(),Start_mock_test.class);
-            intent1.putExtra("euid",euid);
-            intent1.putExtra("date",date);
-            intent1.putExtra("stime",stime);
-            intent1.putExtra("etime",etime);
-            startActivity(intent1);
-            finish();
+            ref.child(date).child(euid).child("Candidates").child(shh.getFrom("personal","username")).setValue("WRITING").addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task)
+                {
+                    Intent intent1=new Intent(getApplicationContext(),Start_mock_test.class);
+                    intent1.putExtra("euid",euid);
+                    intent1.putExtra("date",date);
+                    intent1.putExtra("stime",stime);
+                    intent1.putExtra("etime",etime);
+                    startActivity(intent1);
+                    finish();
+                }
+            });
         }
         else
         {
@@ -150,13 +156,19 @@ public class nexttoenter extends AppCompatActivity
                 @Override
                 public void onEnd(CountdownView cv)
                 {
-                    Intent intent1=new Intent(getApplicationContext(),Start_mock_test.class);
-                    intent1.putExtra("euid",euid);
-                    intent1.putExtra("date",date);
-                    intent1.putExtra("stime",stime);
-                    intent1.putExtra("etime",etime);
-                    startActivity(intent1);
-                    finish();
+                    ref.child(date).child(euid).child("Candidates").child(shh.getFrom("personal","username")).setValue("WRITING").addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task)
+                        {
+                            Intent intent1=new Intent(getApplicationContext(),Start_mock_test.class);
+                            intent1.putExtra("euid",euid);
+                            intent1.putExtra("date",date);
+                            intent1.putExtra("stime",stime);
+                            intent1.putExtra("etime",etime);
+                            startActivity(intent1);
+                            finish();
+                        }
+                    });
                 }
             });
         }

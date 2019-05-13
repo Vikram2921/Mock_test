@@ -36,6 +36,7 @@ public class show_Result extends AppCompatActivity {
     Shared_handler shh;
     Helper h=new Helper();
     LinearLayout ll;
+    boolean ftime=false;
     ArrayList<String> responses=new ArrayList<>();
     ArrayList<Question_pojo> questions=new ArrayList<>();
     SectorProgressView cp,sp,wp;
@@ -50,6 +51,14 @@ public class show_Result extends AppCompatActivity {
         Intent intent=getIntent();
         date=intent.getStringExtra("date");
         euid=intent.getStringExtra("euid");
+        if(intent.hasExtra("ftime"))
+        {
+            String ft=intent.getStringExtra("ftime");
+            if(ft.equals("true"))
+            {
+                ftime=true;
+            }
+        }
         shh=new Shared_handler(getApplicationContext());
         fd=FirebaseDatabase.getInstance();
         ref=fd.getReference("Users");
@@ -262,7 +271,7 @@ public class show_Result extends AppCompatActivity {
         cp.setPercent(cper);
         wp.setPercent(wper);
         sp.setPercent(sper);
-        float totper=((float)mymarks/(float)totalmarks)*100;
+        float totper=((float)mymarks/Float.parseFloat(mtbp.getMax_marks()))*100;
         Log.d("TAGPERCENT", "analysnow: "+cper+" : "+wper+" : "+sper+" : "+totper);
         per.setText((int)totper+" %");
         ctv.setText("Correct Answers\n"+correct+" / "+total);
@@ -278,5 +287,6 @@ public class show_Result extends AppCompatActivity {
             oall.setTextColor(Color.parseColor("#d81b1b"));
             oall.setText("FAIL");
         }
+        ref1.child(date).child(euid).child("Ranking").child(correct+"").child(shh.getFrom("personal","username")).setValue(oall.getText().toString()+"]-]"+totper);
     }
 }

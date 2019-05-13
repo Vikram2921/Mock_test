@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="80dp">
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/person"
+        android:id="@+id/profile"
+        android:background="@color/colorPrimary"
+        android:layout_width="60dp"
+        android:scaleType="centerCrop"
+        android:layout_height="60dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_toRightOf="@id/profile"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="24dp"
+            android:singleLine="true"
+            android:text="Loading name"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/name"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="15dp"
+            android:padding="4dp"
+            android:drawablePadding="6dp"
+            android:background="@drawable/tback"
+            android:drawableTint="#000"
+            android:drawableLeft="@drawable/ic_refresh_black_24dp"
+            android:text="Refreshing   "
+            android:id="@+id/status"
+            android:layout_marginRight="8dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</RelativeLayout>

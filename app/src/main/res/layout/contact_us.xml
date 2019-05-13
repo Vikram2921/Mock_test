@@ -8,7 +8,7 @@
         android:layout_centerVertical="true"
         android:textSize="18dp"
         android:autoLink="email"
-        android:text="Hi Users,\nIf you feels that there is a need of improvement on this app please contact us on provided email id , Thanks for your response.\n\n\nEmail ID\n vikramsinghrawat5052@gmail.com \nor\n dharmeshvsharma@gmail.com"
+        android:text="Hi Users,\nIf you feels that there is a need of improvement on this app please contact us on provided email id , Thanks for your response.\n\n\nEmail ID\n vikramsinghrawat5052@gmail.com \nor\n dharmeshsharma700@gmail.com"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>

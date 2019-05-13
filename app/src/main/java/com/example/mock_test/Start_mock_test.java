@@ -203,6 +203,7 @@ public class Start_mock_test extends AppCompatActivity {
                                 Intent intent=new Intent(getApplicationContext(),show_Result.class);
                                 intent.putExtra("date",date);
                                 intent.putExtra("euid",euid);
+                                intent.putExtra("ftime","true");
                                 startActivity(intent);
                                 dialog.dismiss();
                                 finish();
@@ -235,8 +236,27 @@ public class Start_mock_test extends AppCompatActivity {
         });
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Submit_Paper();
+            public void onClick(View view)
+            {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Start_mock_test.this,R.style.AppCompatAlertDialogStyle);
+                builder.setTitle("Submit your paper now ?");
+                builder.setMessage("Your response will be submitted and you are not allowed to attempt this paper again.");
+                builder.setCancelable(false);
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, int id)
+                    {
+                        Submit_Paper();
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
             }
         });
         vp=findViewById(R.id.viewpager);

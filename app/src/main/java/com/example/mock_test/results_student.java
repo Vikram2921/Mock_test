@@ -88,29 +88,29 @@ public class results_student extends Fragment
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                mock_test_basic_pojo mtbp=dataSnapshot.getValue(mock_test_basic_pojo.class);
-                en.setText(mtbp.getExam_fullname());
-                mm.setText("Max. marks : "+mtbp.getMax_marks());
-                String stime=mtbp.getExam_start_time();
-                String etime=mtbp.getExam_end_time();
-                String sp[]=stime.split("]-]");
-                String ep[]=etime.split("]-]");
-                int sh=Integer.parseInt(sp[0]);
-                int sm=Integer.parseInt(sp[1]);
-                int eh=Integer.parseInt(ep[0]);
-                int em=Integer.parseInt(ep[1]);
-                String a="AM",b="AM";
-                if(sh>12)
-                {
-                    a="PM";
-                    sh=sh-12;
+                if(dataSnapshot.exists()) {
+                    mock_test_basic_pojo mtbp = dataSnapshot.getValue(mock_test_basic_pojo.class);
+                    en.setText(mtbp.getExam_fullname());
+                    mm.setText("Max. marks : " + mtbp.getMax_marks());
+                    String stime = mtbp.getExam_start_time();
+                    String etime = mtbp.getExam_end_time();
+                    String sp[] = stime.split("]-]");
+                    String ep[] = etime.split("]-]");
+                    int sh = Integer.parseInt(sp[0]);
+                    int sm = Integer.parseInt(sp[1]);
+                    int eh = Integer.parseInt(ep[0]);
+                    int em = Integer.parseInt(ep[1]);
+                    String a = "AM", b = "AM";
+                    if (sh > 12) {
+                        a = "PM";
+                        sh = sh - 12;
+                    }
+                    if (eh > 12) {
+                        b = "PM";
+                        eh = eh - 12;
+                    }
+                    time.setText("From :: " + h.convertoTwo(sh) + " : " + h.convertoTwo(sm) + " : 00 " + a + "      To :: " + h.convertoTwo(eh) + " : " + h.convertoTwo(em) + " : 00 " + b);
                 }
-                if(eh>12)
-                {
-                    b="PM";
-                    eh=eh-12;
-                }
-                time.setText("From :: "+h.convertoTwo(sh)+" : "+h.convertoTwo(sm)+" : 00 "+a+"      To :: "+h.convertoTwo(eh)+" : "+h.convertoTwo(em)+" : 00 "+b);
             }
 
             @Override

@@ -220,7 +220,7 @@ public class Create_new_test extends AppCompatActivity
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2)
                     {
-                        doe.setText(convertoTwo(i2)+" / "+convertoTwo(i1)+" / "+i);
+                        doe.setText(convertoTwo(i2)+" / "+convertoTwo((i1+1))+" / "+i);
                         eday=i2;
                         emonth=i1;
                         eyear=i;
